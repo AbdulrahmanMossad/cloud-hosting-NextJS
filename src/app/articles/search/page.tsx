@@ -1,30 +1,34 @@
-import { Article } from '@prisma/client';
-import ArticleItem from '@/components/articles/ArticleItem';
-import { getArticlesBasedOnSearch } from '@/apiCalls/articleApiCalls';
+import { Article } from "@prisma/client"
+import ArticleItem from "@/components/articles/ArticleItem"
+import { getArticlesBasedOnSearch } from "@/apiCalls/articleApiCalls"
 
 interface SearchArticlePageProps {
-  searchParams: { searchText: string };
+  searchParams: { searchText: string }
 }
 
-const SearchArticlePage = async ({ searchParams: { searchText } }: SearchArticlePageProps) => {
-  const articles: Article[] = await getArticlesBasedOnSearch(searchText);
+const SearchArticlePage = async ({
+  searchParams: { searchText },
+}: SearchArticlePageProps) => {
+  const articles: Article[] = await getArticlesBasedOnSearch(searchText)
 
   return (
-    <section className="fix-height container m-auto px-5">
+    <section className="fix-height container mx-auto px-5 py-10">
       {articles.length === 0 ? (
-        <h2 className='text-gray-800 text-2xl font-bold p-5'>
+        <h2 className="text-gray-800 text-2xl font-bold p-5 text-center">
           Articles based on
-          <span className='text-red-500 mx-1'>{searchText}</span>
+          <span className="text-red-500 mx-1">{searchText}</span>
           not found
         </h2>
       ) : (
         <>
-          <h1 className="text-2xl font-bold mb-2 mt-7 text-gray-800">
+          <h1 className="text-2xl font-bold mb-5 text-gray-800 text-center">
             Articles based on
-            <span className='ms-1 text-green-700 text-3xl font-bold'>{searchText}</span>
+            <span className="ms-1 text-green-700 text-3xl font-bold">
+              {searchText}
+            </span>
           </h1>
-          <div className='flex items-center justify-center flex-wrap gap-7'>
-            {articles.map(item => (
+          <div className="flex flex-wrap justify-center gap-7">
+            {articles.map((item) => (
               <ArticleItem key={item.id} article={item} />
             ))}
           </div>
@@ -35,3 +39,41 @@ const SearchArticlePage = async ({ searchParams: { searchText } }: SearchArticle
 }
 
 export default SearchArticlePage
+
+// import { Article } from '@prisma/client';
+// import ArticleItem from '@/components/articles/ArticleItem';
+// import { getArticlesBasedOnSearch } from '@/apiCalls/articleApiCalls';
+
+// interface SearchArticlePageProps {
+//   searchParams: { searchText: string };
+// }
+
+// const SearchArticlePage = async ({ searchParams: { searchText } }: SearchArticlePageProps) => {
+//   const articles: Article[] = await getArticlesBasedOnSearch(searchText);
+
+//   return (
+//     <section className="fix-height container m-auto px-5">
+//       {articles.length === 0 ? (
+//         <h2 className='text-gray-800 text-2xl font-bold p-5'>
+//           Articles based on
+//           <span className='text-red-500 mx-1'>{searchText}</span>
+//           not found
+//         </h2>
+//       ) : (
+//         <>
+//           <h1 className="text-2xl font-bold mb-2 mt-7 text-gray-800">
+//             Articles based on
+//             <span className='ms-1 text-green-700 text-3xl font-bold'>{searchText}</span>
+//           </h1>
+//           <div className='flex items-center justify-center flex-wrap gap-7'>
+//             {articles.map(item => (
+//               <ArticleItem key={item.id} article={item} />
+//             ))}
+//           </div>
+//         </>
+//       )}
+//     </section>
+//   )
+// }
+
+// export default SearchArticlePage

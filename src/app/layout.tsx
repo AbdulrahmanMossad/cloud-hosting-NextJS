@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex flex-col h-screen justify-between">
+      <body className="flex flex-col h-screen ">
         <Header />
         <ToastContainer theme="colored" position="top-center" />
         <main>{children}</main>

@@ -1,24 +1,28 @@
+/* globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255; */
-  --bg-color: #efefef;
+  --bg-color: #efefef; /* Define your custom background color */
 }
 
 body {
-  /* color: rgb(var(--foreground-rgb)); */
-  background-color: var(--bg-color);
+  background: linear-gradient(
+    to bottom,
+    var(--bg-gradient-start),
+    var(--bg-gradient-end)
+  );
 }
+
 .fix-height {
-  min-height: calc(100vh - 150px);
+  min-height: calc(100vh - 150px); /* Ensure minimum height calculation */
 }
+
 .overflow-height {
-  height: calc(100vh - 150px);
+  height: calc(100vh - 150px); /* Adjust height calculation as needed */
 }
+
 button:disabled {
-  cursor: not-allowed;
+  cursor: not-allowed; /* Define cursor behavior for disabled buttons */
 }

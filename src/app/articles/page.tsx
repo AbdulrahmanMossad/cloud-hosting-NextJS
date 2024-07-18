@@ -18,7 +18,7 @@ const ArticlesPage = async ({ searchParams }: props) => {
   const count: number = await prisma.article.count()
   const pages = Math.ceil(count / ARTICLE_PER_PAGE)
   return (
-    <section className="m-auto px-5 container">
+    <section className="m-auto px-5 container min-h-[500px]">
       <SearchArticleInput />
       <div className="flex justify-center flex-wrap gap-7 ">
         {articles.map((item, index) => (
