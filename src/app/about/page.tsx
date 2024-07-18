@@ -7,7 +7,7 @@ const AboutPage = () => {
         </h1>
         <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-6 text-center">
           Our mission at Cloud Hosting is to provide the best web hosting
-          solutions tailored to your needs. Whether you're a small business
+          solutions tailored to your needs. Whether you are a small business
           looking to establish your online presence or a large enterprise
           needing robust hosting infrastructure, we are here to support you
           every step of the way.
